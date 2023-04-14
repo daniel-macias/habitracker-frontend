@@ -3,6 +3,10 @@ import { useNavigate } from "react-router-dom";
 import { useCookies } from "react-cookie";
 import axios from "axios";
 import { toast, ToastContainer } from "react-toastify";
+import { Timeline } from "../components/Timeline";
+import { Box, Stack } from '@mui/material'
+import { Navbar } from "../components/Navbar";
+
 
 export default function Tracker() {
   const navigate = useNavigate();
@@ -38,8 +42,17 @@ export default function Tracker() {
   return (
     <>
       <div className="private">
-        <h1>Super Secret Page</h1>
-        <button onClick={logOut}>Log out</button>
+        <Navbar logOutFunction={logOut}/>
+        <hr />
+        <Box>
+          <Stack direction="column">
+            <Timeline />
+            <Timeline />
+            <Timeline />
+            <Timeline />
+          </Stack>
+        </Box>
+        
       </div>
       <ToastContainer />
     </>
